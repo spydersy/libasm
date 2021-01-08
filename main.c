@@ -1,4 +1,5 @@
 #include "libasm.h"
+#include <stdio.h>
 
 // void        test_ft_read(int fildes, void *buf, size_t nbyte)
 // {}
@@ -13,7 +14,10 @@
 // {}
 
 void        test_ft_strlen(const char *s)
-{}
+{
+    printf("SYS : %d\n", strlen(s));
+    printf("USR : %d\n", ft_strlen(s));
+}
 
 // void        test_ft_write(int fildes, const void *buf, size_t nbyte)
 // {}
