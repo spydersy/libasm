@@ -6,8 +6,8 @@
 
 void        test_ft_strcmp(void)
 {
-    const char *s1 = "Q";
-    const char *s2 = "s";
+    const char *s2 = "1";
+    const char *s1 = "3";
     printf("SYS : %d\n",    strcmp(s1, s2));
     printf("USR : %d\n", ft_strcmp(s1, s2));    
 }
