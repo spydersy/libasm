@@ -3,12 +3,8 @@
 
 int         main()
 {
-    char    src[] = "test strcpy";
-    char    dst[] = "xxx     v  ";
 
-    char *ret;
-    printf("0 : >>%s<<\n", dst);
-    ret = strcpy(dst, src);
-    printf("1 : >>%s<<\n", dst);
+    printf("cmp: %d\n", strcmp("54", "3"));
+
     return (0);
 }

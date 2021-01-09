@@ -1,5 +1,5 @@
         global  _ft_strcpy
-        extern  _errno
+
 ft_loop:
         inc rax
         mov cl, rsi[rax]
