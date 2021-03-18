@@ -1,1 +1,1 @@
-clear && nasm -f macho64 hello.s && ld -macosx_version_min 10.7.0 -o hello_world hello.o
+clear && nasm -f macho64 ft_strlen.s && gcc -Wall -Werror -Wextra main.c ft_strlen.o -o ft_strlen
