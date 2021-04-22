@@ -6,35 +6,34 @@
 #    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/09 14:39:11 by abelarif          #+#    #+#              #
-#    Updated: 2021/01/09 14:53:48 by abelarif         ###   ########.fr        #
+#    Updated: 2021/04/22 09:49:44 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+OBJS =	ft_read.o\
+		ft_strcmp.o\
+		ft_strcpy.o\
+		ft_strdup.o\
+		ft_strlen.o\
+		ft_write.o
+
 NAME = libasm.a
-
-NASM = nasm
-
-FLAG = -f macho64
-
-SRCS =	ft_read.s	\
-		ft_strcmp.s	\
-		ft_strcpy.s	\
-		ft_strdup.s	\
-		ft_strlen.s	\
-		ft_write.s	\
-
-OBJS = $(SRCS:.s=.o)
 
 all: $(NAME)
 
 $(NAME):
-		$(NASM) $(FLAG) $(SRCS)
-		ar rc $(NAME) $(OBJS)
+	nasm -f macho64 ft_read.s -o ft_read.o
+	nasm -f macho64 ft_strcmp.s -o ft_strcmp.o
+	nasm -f macho64 ft_strcpy.s -o ft_strcpy.o
+	nasm -f macho64 ft_strdup.s -o ft_strdup.o
+	nasm -f macho64 ft_strlen.s -o ft_strlen.o
+	nasm -f macho64 ft_write.s -o ft_write.o
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
-		rm -f $(OBJS)
+	rm -rf $(OBJS)
 
-fclean: clean
-		rm -f $(NAME)
-
+fclean:
+	rm -rf $(NAME)
 re: fclean all

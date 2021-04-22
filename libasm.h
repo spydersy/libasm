@@ -6,7 +6,7 @@
 /*   By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 14:39:01 by abelarif          #+#    #+#             */
-/*   Updated: 2021/01/09 14:39:02 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/04/22 08:24:25 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LIBASM_H
 
 #include <errno.h>
+#include <sys/errno.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/types.h>
