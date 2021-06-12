@@ -6,23 +6,38 @@
 /*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:49:12 by abelarif          #+#    #+#             */
-/*   Updated: 2021/06/10 15:40:11 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:48:04 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-void    read_test(int fd, size_t nbyte)
-{
-    int         sys;
-    int         usr;
-    char        *sysbuf = malloc(sizeof(char) * 500);
-    char        *usrbuf = malloc(sizeof(char) * 500);
 
-    sys = read(fd, sysbuf, nbyte);
-    usr = ft_read(fd, usrbuf, nbyte);
-    printf("USR : [%d], [%s]\n", usr, usrbuf);
-    printf("SYS : [%d], [%s]\n", sys, sysbuf);
+#include <stdio.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
+#include "libasm.h"
+
+void    read_test(void)
+{
+    size_t      nbyte = 50;
+
+    {
+        int         usr;
+        char        *usrbuf = malloc(sizeof(char) * 500);
+        int         fd = open("main.c", O_RDONLY);
+        usr = ft_read(0, usrbuf, nbyte);
+        printf("USR : [%d], [%s]\n", usr, usrbuf);    
+    }
+    {
+        int         sys;
+        char        *sysbuf = malloc(sizeof(char) * 500);
+        int         fd = open("main.c", O_RDONLY);
+        sys = read(0, sysbuf, nbyte);
+        printf("SYS : [%d], [%s]\n", sys, sysbuf);        
+    }
 }
 
 void       strcmp_test(char *str0, char *str1)
@@ -86,10 +101,11 @@ void    write_test(int fd, void *buf, size_t nbyte)
 
 int     main(void)
 {
-    // char    *str0 = "str0";
-    // char    *str1 = "str1";
+    char    *str0 = "str0";
+    char    *str1 = "str1";
+    int     fd = 0;
 
-    read_test(0, 5);
+    read_test();
     // strcmp_test(str0, str1);
     // strcpy_test();
     // strdup_test(str0);
