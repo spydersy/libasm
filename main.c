@@ -6,7 +6,7 @@
 /*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:49:12 by abelarif          #+#    #+#             */
-/*   Updated: 2021/06/12 18:48:04 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/06/12 18:52:16 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 void    read_test(void)
 {
-    size_t      nbyte = 50;
+    size_t      nbyte = 500000;
 
     {
         int         usr;
