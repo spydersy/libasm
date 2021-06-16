@@ -6,7 +6,7 @@
 /*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:49:12 by abelarif          #+#    #+#             */
-/*   Updated: 2021/06/16 11:31:11 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/06/16 11:38:07 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,28 +108,27 @@ int     main(void)
     char    *str0 = "str0";
     char    *str1 = "strA";
 
-    // write(1, "\nREAD TEST : \n", strlen("\nREAD TEST : \n"));
-    //     read_test();
-    // printf("******************************************************************\n");
+    write(1, "\nREAD TEST : \n", strlen("\nREAD TEST : \n"));
+        read_test();
+    printf("******************************************************************\n");
 
-    // write(1, "\nSTRCMP TEST : \n", strlen("\nSTRCMP TEST : \n"));
-    //     strcmp_test(str0, str1);    
-    // printf("******************************************************************\n");
+    write(1, "\nSTRCMP TEST : \n", strlen("\nSTRCMP TEST : \n"));
+        strcmp_test(str0, str1);    
+    printf("******************************************************************\n");
     
-    // write(1, "\nSTRCPY TEST : \n", strlen("\nSTRCPY TEST : \n"));
-    //     strcpy_test();
-    // printf("******************************************************************\n");
+    write(1, "\nSTRCPY TEST : \n", strlen("\nSTRCPY TEST : \n"));
+        strcpy_test();
+    printf("******************************************************************\n");
 
-    // write(1, "\nSTRDUP TEST : \n", strlen("\nSTRDUP TEST : \n"));
-    //     strdup_test(str0);
-    // printf("******************************************************************\n");
+    write(1, "\nSTRDUP TEST : \n", strlen("\nSTRDUP TEST : \n"));
+        strdup_test(str0);
+    printf("******************************************************************\n");
 
-    // write(1, "\nSTRLEN TEST : \n", strlen("\nSTRLEN TEST : \n"));
-    //     strlen_test(str0);
-    // printf("******************************************************************\n");
+    write(1, "\nSTRLEN TEST : \n", strlen("\nSTRLEN TEST : \n"));
+        strlen_test(str0);
+    printf("******************************************************************\n");
 
     write(1, "\nWRITE TEST : \n", strlen("\nWRITE TEST : \n"));
-    // printf("STR) [%s]", str0);
         write_test(1, str0, 6);
     printf("******************************************************************\n");
 
