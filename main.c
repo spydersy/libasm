@@ -6,7 +6,7 @@
 /*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:49:12 by abelarif          #+#    #+#             */
-/*   Updated: 2021/06/12 18:52:16 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/06/16 10:46:59 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,25 @@
 #include <stdlib.h>
 #include <errno.h>
 #include "libasm.h"
+#include <fcntl.h>
 
 void    read_test(void)
 {
-    size_t      nbyte = 500000;
+    size_t      nbyte = 10;
 
     {
         int         usr;
         char        *usrbuf = malloc(sizeof(char) * 500);
         int         fd = open("main.c", O_RDONLY);
-        usr = ft_read(0, usrbuf, nbyte);
-        printf("USR : [%d], [%s]\n", usr, usrbuf);    
+        usr = ft_read(fd, usrbuf, nbyte);
+        printf("USR : [%d], [%s]\n", usr, usrbuf);
+        close(0);
     }
     {
         int         sys;
         char        *sysbuf = malloc(sizeof(char) * 500);
         int         fd = open("main.c", O_RDONLY);
-        sys = read(0, sysbuf, nbyte);
+        sys = read(fd, sysbuf, nbyte);
         printf("SYS : [%d], [%s]\n", sys, sysbuf);        
     }
 }
@@ -45,18 +47,16 @@ void       strcmp_test(char *str0, char *str1)
     int         sys;
     int         usr;
 
-    sys = strcmp(str0, str1);
-    usr = ft_strcmp(str0, str1);
-    printf("SYS : [%d]\n", sys);
-    printf("USR : [%d]\n", usr);
+    printf("SYS : [%d]\n", sys = strcmp(str0, str1));
+    printf("USR : [%d]\n", usr = ft_strcmp(str0, str1));
 }
 
 void    strcpy_test()
 {
-    char    *dstusr = "DESTINATION";
-    char    *srcusr = "SOURCE";
-    char    *dstsys = "DESTINATION";
-    char    *srcsys = "SOURCE";
+    char    *dstusr = strdup("DST");
+    char    *srcusr = strdup("SOURCE");
+    char    *dstsys = strdup("DST");
+    char    *srcsys = strdup("SOURCE");
 
     dstsys = strcpy(dstsys, srcsys);
     dstusr = strcpy(dstusr, srcusr);
@@ -102,14 +102,32 @@ void    write_test(int fd, void *buf, size_t nbyte)
 int     main(void)
 {
     char    *str0 = "str0";
-    char    *str1 = "str1";
-    int     fd = 0;
+    char    *str1 = "strA";
 
-    read_test();
-    // strcmp_test(str0, str1);
-    // strcpy_test();
-    // strdup_test(str0);
-    // strlen_test(str0);
-    // write_test(15, str0, 16);
-    return (0);
+    // write(1, "\nREAD TEST : \n", strlen("\nREAD TEST : \n"));
+    //     read_test();
+    // printf("******************************************************************\n");
+
+    // write(1, "\nSTRCMP TEST : \n", strlen("\nSTRCMP TEST : \n"));
+    //     strcmp_test(str0, str1);    
+    // printf("******************************************************************\n");
+    
+    // write(1, "\nSTRCPY TEST : \n", strlen("\nSTRCPY TEST : \n"));
+    //     strcpy_test();
+    // printf("******************************************************************\n");
+
+    // write(1, "\nSTRDUP TEST : \n", strlen("\nSTRDUP TEST : \n"));
+    //     strdup_test(str0);
+    // printf("******************************************************************\n");
+
+    // write(1, "\nSTRLEN TEST : \n", strlen("\nSTRLEN TEST : \n"));
+    //     strlen_test(str0);
+    // printf("******************************************************************\n");
+
+    write(1, "\nWRITE TEST : \n", strlen("\nWRITE TEST : \n"));
+        write_test(1, str0, 16);
+    printf("******************************************************************\n");
+
+    if (str0 == NULL || str1 == NULL) 
+        return (0);
 }
