@@ -1,1 +1,0 @@
-clear && nasm -f macho64 ft_strlen.s && gcc -Wall -Werror -Wextra main.c ft_strlen.o -o ft_strlen

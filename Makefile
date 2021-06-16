@@ -3,12 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
+#    By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/09 14:39:11 by abelarif          #+#    #+#              #
-#    Updated: 2021/06/10 14:10:49 by abelarif         ###   ########.fr        #
+#    Updated: 2021/06/16 14:52:45 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = libasm.a
 
 OBJS =	ft_read.o\
 		ft_strcmp.o\
@@ -17,10 +19,6 @@ OBJS =	ft_read.o\
 		ft_strlen.o\
 		ft_write.o
 
-NAME = libasm.a
-
-all: $(NAME)
-
 $(NAME):
 	nasm -f macho64 ft_read.s -o ft_read.o
 	nasm -f macho64 ft_strcmp.s -o ft_strcmp.o
@@ -28,12 +26,15 @@ $(NAME):
 	nasm -f macho64 ft_strdup.s -o ft_strdup.o
 	nasm -f macho64 ft_strlen.s -o ft_strlen.o
 	nasm -f macho64 ft_write.s -o ft_write.o
-	ar rc $(NAME) $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
+
 re: fclean all
