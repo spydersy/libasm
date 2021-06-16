@@ -6,7 +6,7 @@
 /*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:49:12 by abelarif          #+#    #+#             */
-/*   Updated: 2021/06/16 10:46:59 by abelarif         ###   ########.fr       */
+/*   Updated: 2021/06/16 11:31:11 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    read_test(void)
     }
 }
 
-void       strcmp_test(char *str0, char *str1)
+void    strcmp_test(char *str0, char *str1)
 {
     int         sys;
     int         usr;
@@ -90,11 +90,15 @@ void    write_test(int fd, void *buf, size_t nbyte)
 {
     int     sys;
     int     usr;
-
-    printf("SYS : \n");
+    printf("");
+    write(1,"SYS : [", strlen("SYS : ["));
         sys = write(fd, buf, nbyte);
-    printf("USR : \n");
+    write(1, "]\n", strlen("]\n"));
+
+    write(1,"USR : [", strlen("USR : ["));
         usr = ft_write(fd, buf, nbyte);
+    write(1, "]\n", strlen("]\n"));
+
     printf("SYS : [%d]\n", sys);
     printf("USR : [%d]\n", usr);
 }
@@ -125,7 +129,8 @@ int     main(void)
     // printf("******************************************************************\n");
 
     write(1, "\nWRITE TEST : \n", strlen("\nWRITE TEST : \n"));
-        write_test(1, str0, 16);
+    // printf("STR) [%s]", str0);
+        write_test(1, str0, 6);
     printf("******************************************************************\n");
 
     if (str0 == NULL || str1 == NULL) 
